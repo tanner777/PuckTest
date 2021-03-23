@@ -92,8 +92,9 @@ date_win_max += taxis_increment;
 g.updateOptions( { dateWindow : [date_win_min, date_win_max] } );
 
 };
-
-data.push([x, y]);
+var oldY = 100;
+var avgY= (oldY+y)/2;
+data.push([x, avgY]);
 
 g.updateOptions( { 'file': data } );
 
