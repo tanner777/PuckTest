@@ -54,26 +54,6 @@ var date_win_min = t.getTime();
 var date_win_max = date_win_min + 2*taxis_increment;
 
 
-var g = new Dygraph(document.getElementById("div_g"), data,
-
-{
-
-drawPoints: true,
-
-showRoller: true,
-
-digitsAfterDecimal: 3,
-
-dateWindow: [date_win_min, date_win_max],
-
-// valueRange: [980, 1020],
-
-labels: ['Time', 'Pressure'],
-
-showRangeSelector: true
-
-});
-
 
 function onLine(v) {
 
