@@ -69,7 +69,7 @@ date_win_min += taxis_increment;
 
 date_win_max += taxis_increment;
 
-g.updateOptions( { dateWindow : [date_win_min, date_win_max] } );
+
 
 };
 
@@ -98,7 +98,7 @@ connection.write("clearInterval(1)\n", function() { });
 
 data.splice(0,data.length);
 
-connection.write("setInterval(function(){Bluetooth.println(ecg().toFixed(3));} ,10); \n", function() { });
+connection.write("setInterval(function(){Bluetooth.println(ecg().toFixed(3));} ,15); \n", function() { });
 
 t = new Date();
 
