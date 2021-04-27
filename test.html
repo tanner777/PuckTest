@@ -54,6 +54,26 @@ var date_win_min = t.getTime();
 var date_win_max = date_win_min + 2*taxis_increment;
 
 
+var g = new Dygraph(document.getElementById("div_g"), data,
+
+{
+
+drawPoints: true,
+
+showRoller: true,
+
+digitsAfterDecimal: 3,
+
+dateWindow: [date_win_min, date_win_max],
+
+// valueRange: [980, 1020],
+
+labels: ['Time', 'Pressure'],
+
+showRangeSelector: true
+
+});
+
 
 function onLine(v) {
 
@@ -69,11 +89,13 @@ date_win_min += taxis_increment;
 
 date_win_max += taxis_increment;
 
+g.updateOptions( { dateWindow : [date_win_min, date_win_max] } );
 
 };
 
 data.push([x, y]);
 
+g.updateOptions( { 'file': data } );
 
 };
 
@@ -96,7 +118,7 @@ connection.write("clearInterval(1)\n", function() { });
 
 data.splice(0,data.length);
 
-connection.write("setInterval(function(){Bluetooth.println(ecg().toFixed(3));} ,10); \n", function() { });
+connection.write("setInterval(function(){Bluetooth.println(ecg().toFixed(3));} ,20); \n", function() { });
 
 t = new Date();
 
